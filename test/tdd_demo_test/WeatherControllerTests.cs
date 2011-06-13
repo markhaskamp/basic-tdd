@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Linq;
 using System.Web.Mvc;
-using Castle.Core;
 using Castle.Core.Internal;
 using Castle.MicroKernel;
 using Castle.Windsor;
-using Castle.Windsor.Configuration.Interpreters;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using tdd_demo.Castle_IOC;
 using tdd_demo.Controllers;
