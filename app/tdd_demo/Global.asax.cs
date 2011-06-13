@@ -1,9 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using Castle.Windsor;
 using System.Web.Mvc;
 using System.Web.Routing;
+using tdd_demo.Castle_IOC;
 
 namespace tdd_demo
 {
@@ -12,6 +11,12 @@ namespace tdd_demo
 
     public class MvcApplication : System.Web.HttpApplication
     {
+
+        private static IWindsorContainer _container;
+        public IWindsorContainer Container {
+            get { return _container; }
+        }
+
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
             filters.Add(new HandleErrorAttribute());
@@ -29,12 +34,18 @@ namespace tdd_demo
 
         }
 
-        protected void Application_Start()
-        {
+        protected void Application_Start() {
+            BootstrapContainer();
             AreaRegistration.RegisterAllAreas();
 
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
+        }
+
+        private void BootstrapContainer() {
+            _container = new WindsorContainer();
+            _container.Install(new DependencyInstaller(), new ControllerInstaller());
+            DependencyResolver.SetResolver(new CastleDependencyResolver(_container));
         }
     }
 }
