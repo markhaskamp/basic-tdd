@@ -79,6 +79,8 @@
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\IWeatherSvc.cs" />
+    <Compile Include="Services\WeatherSvc.cs" />
     <Compile Include="Views\Weather\ViewModel\WeatherIndex_ViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
