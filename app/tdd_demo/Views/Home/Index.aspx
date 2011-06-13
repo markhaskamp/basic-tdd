@@ -9,4 +9,7 @@
     <p>
         To learn more about ASP.NET MVC visit <a href="http://asp.net/mvc" title="ASP.NET MVC Website">http://asp.net/mvc</a>.
     </p>
+
+    <a href="/Weather/">How's the weather?</a>
+
 </asp:Content>
