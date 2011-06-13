@@ -6,11 +6,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tdd_demo_test", "..\test\tdd_demo_test\tdd_demo_test.csproj", "{BBC2AF76-9B2B-4A5D-A255-7C3387669E63}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C1107EA5-0178-4F40-A8B2-B233BF7E8532}"
-	ProjectSection(SolutionItems) = preProject
-		Local.testsettings = Local.testsettings
-		tdd_demo.vsmdi = tdd_demo.vsmdi
-		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
-	EndProjectSection
 EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
