@@ -1,8 +1,18 @@
-﻿namespace tdd_demo.Views.Weather.ViewModel
+﻿
+namespace tdd_demo.Views.Weather.ViewModel
 {
     public class WeatherCounty_ViewModel
     {
+        public bool SecondsFlag;
         public string Description { get; set; }
-        public int Seconds { get; set; }
+
+        private int _seconds;
+        public int Seconds {
+            get { return _seconds; } 
+            set {
+                _seconds = value;
+                SecondsFlag = ((value%2) == 1);
+            }
+        }
     }
 }

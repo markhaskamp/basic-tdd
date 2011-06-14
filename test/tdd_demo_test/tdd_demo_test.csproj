@@ -53,6 +53,7 @@
     <Compile Include="JustMockTest1.cs" />
     <Compile Include="MSCorLibTest1.cs" />
     <Compile Include="WeatherControllerTests.cs" />
+    <Compile Include="WeatherCounty_ViewModelTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\app\tdd_demo\tdd_demo.csproj">
