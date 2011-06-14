@@ -105,7 +105,8 @@ namespace tdd_demo_test
             weatherController.County("Montgomery");
 
             Mock.Assert(timeSvc);
+        }
 
-        }   
+
     }
 }

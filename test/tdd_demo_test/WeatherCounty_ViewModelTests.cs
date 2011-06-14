@@ -21,7 +21,7 @@ namespace tdd_demo_test
         public void when_seconds_are_odd_then_SecondsAreOdd_flag_is_true() {
             WeatherCounty_ViewModel viewModel = new WeatherCounty_ViewModel();
 
-            viewModel.Description = "eddie would go";
+            viewModel.Description = "we excel on ice";
             viewModel.Seconds = 41;
 
             Assert.IsTrue(viewModel.SecondsAreOdd);

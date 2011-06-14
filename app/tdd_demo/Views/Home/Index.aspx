@@ -12,5 +12,6 @@
 
     <a href="/Weather/">Weather/Index</a>
     <br /><a href="/Weather/County/Montgomery">How's the weather in Montgomery county?</a>
+    <br /><a href="/Weather/Page3.aspx">Page3</a>
 
 </asp:Content>

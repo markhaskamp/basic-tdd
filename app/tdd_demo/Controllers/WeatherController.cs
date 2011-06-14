@@ -15,7 +15,7 @@ namespace tdd_demo.Controllers
             this.timeSvc = timeSvc;
         }
 
-        public JsonResult County(string id) {
+        public ViewResult County(string id) {
             WeatherCounty_ViewModel viewModel = new WeatherCounty_ViewModel();
             var weather = weatherSvc.GetWeatherForCounty(id);
             DateTime currentTime = timeSvc.GetCurrentTime();
@@ -23,7 +23,19 @@ namespace tdd_demo.Controllers
             viewModel.Description = weather;
             viewModel.Seconds = currentTime.Second;
 
-            return Json(viewModel, "text/html", JsonRequestBehavior.AllowGet);
+            return View();
+//            return Json(viewModel, "text/html", JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult CountyJSON(string id) {
+            WeatherCounty_ViewModel viewModel = new WeatherCounty_ViewModel();
+            var weather = weatherSvc.GetWeatherForCounty(id);
+            DateTime currentTime = timeSvc.GetCurrentTime();
+
+            viewModel.Description = weather;
+            viewModel.Seconds = currentTime.Second;
+
+            return Json(viewModel, JsonRequestBehavior.AllowGet);
         }
     }
 }
