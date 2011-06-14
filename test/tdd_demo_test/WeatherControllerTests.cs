@@ -9,6 +9,7 @@ using tdd_demo.Castle_IOC;
 using tdd_demo.Controllers;
 using tdd_demo.Services;
 using Telerik.JustMock;
+using Telerik.JustMock.Helpers;
 
 namespace tdd_demo_test
 {
@@ -63,7 +64,10 @@ namespace tdd_demo_test
         [TestMethod]
         public void County_method_returns_json() {
             IWeatherSvc weatherSvc = Mock.Create<IWeatherSvc>();
-            WeatherController weatherController = new WeatherController(weatherSvc);
+            ITimeSvc timeSvc = Mock.Create<ITimeSvc>();
+            Mock.Arrange(() => timeSvc.GetCurrentTime()).Returns(DateTime.Now);
+
+            WeatherController weatherController = new WeatherController(weatherSvc, timeSvc);
 
             ActionResult actionResult = weatherController.County("Montgomery");
 
@@ -73,15 +77,35 @@ namespace tdd_demo_test
         [TestMethod]
         public void County_method_calls_WeatherSvc_GetWeatherForCounty() {
             IWeatherSvc weatherSvc = Mock.Create<IWeatherSvc>();
-            WeatherController weatherController = new WeatherController(weatherSvc);
+            ITimeSvc timeSvc = Mock.Create<ITimeSvc>();
+
+            WeatherController weatherController = new WeatherController(weatherSvc, timeSvc);
 
             Mock.Arrange(() => weatherSvc.GetWeatherForCounty("Montgomery"))
                                 .IgnoreArguments()
                                 .MustBeCalled();
 
+            Mock.Arrange(() => timeSvc.GetCurrentTime()).Returns(DateTime.Now);
+
             weatherController.County("Montgomery");  // act
 
             Mock.Assert(weatherSvc); // assert
         }
+
+        [TestMethod]
+        public void County_method_calls_TimeSvc() {
+            IWeatherSvc weatherSvc = Mock.Create<IWeatherSvc>();
+            ITimeSvc timeSvc = Mock.Create<ITimeSvc>();
+            WeatherController weatherController = new WeatherController(weatherSvc, timeSvc);
+
+            Mock.Arrange(() => timeSvc.GetCurrentTime())
+                .Returns(DateTime.Now)
+                .MustBeCalled();
+
+            weatherController.County("Montgomery");
+
+            Mock.Assert(timeSvc);
+
+        }   
     }
 }

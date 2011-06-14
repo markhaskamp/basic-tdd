@@ -8,7 +8,7 @@ using Telerik.JustMock;
 namespace tdd_demo_test
 {
     /// <summary>
-    /// Summary description for UnitTest1
+    /// Summary Description for UnitTest1
     /// </summary>
     [TestClass, MockClass]
     public class MSCorLibTest1
