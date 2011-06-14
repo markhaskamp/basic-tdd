@@ -8,13 +8,23 @@ namespace tdd_demo_test
     {
 
         [TestMethod]
-        public void when_seconds_are_even_then_flag_is_false() {
+        public void when_seconds_are_even_then_SecondsAreOdd_flag_is_false() {
             WeatherCounty_ViewModel viewModel = new WeatherCounty_ViewModel();
 
             viewModel.Description = "eddie would go";
             viewModel.Seconds = 42;
 
-            Assert.IsFalse(viewModel.SecondsFlag);
+            Assert.IsFalse(viewModel.SecondsAreOdd);
+        }
+
+        [TestMethod]
+        public void when_seconds_are_odd_then_SecondsAreOdd_flag_is_true() {
+            WeatherCounty_ViewModel viewModel = new WeatherCounty_ViewModel();
+
+            viewModel.Description = "eddie would go";
+            viewModel.Seconds = 41;
+
+            Assert.IsTrue(viewModel.SecondsAreOdd);
         }
     }
 }

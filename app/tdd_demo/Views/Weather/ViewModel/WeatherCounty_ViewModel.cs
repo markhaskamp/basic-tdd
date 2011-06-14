@@ -3,7 +3,7 @@ namespace tdd_demo.Views.Weather.ViewModel
 {
     public class WeatherCounty_ViewModel
     {
-        public bool SecondsFlag;
+        public bool SecondsAreOdd;
         public string Description { get; set; }
 
         private int _seconds;
@@ -11,7 +11,7 @@ namespace tdd_demo.Views.Weather.ViewModel
             get { return _seconds; } 
             set {
                 _seconds = value;
-                SecondsFlag = ((value%2) == 1);
+                SecondsAreOdd = ((value%2) == 1);
             }
         }
     }
